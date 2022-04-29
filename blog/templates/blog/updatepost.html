@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block msg %}
+    {% if messages %}
+    {% for msg in messages %}
+    <p class='alert alert-success'>{{msg}}</p>
+    {% endfor %}
+    {% endif %}
+{% endblock msg %}
+{% block content %}
+<div class='col-sm-10'>
+    <h2 class='mt-3 alert text-center alert-info text-primary'>Update Your Post</h2>
+    <form action='' method='POST' novalidate>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type='submit' value="Update" class="btn btn-primary">
+        <a href="{% url 'dashboardpage' %}" class='btn btn-danger'>Cancle</a>
+    </form>
+    </div>
+{% endblock content %}
+

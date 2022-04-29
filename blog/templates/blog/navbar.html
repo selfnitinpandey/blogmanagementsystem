@@ -1,0 +1,67 @@
+<style>
+  .mynavbar{
+    background-color:darkslategrey;
+    margin-top:2px;
+    box-shadow:1px 6px 5px gray;
+    position:relative;
+    }
+    #navbarNav a{
+       color:white;
+       letter-spacing:2px;
+    }
+    #navbarNav li:hover{
+       background-color:red;
+       font-weight: bold;
+       border-radius: 7px;
+    }
+    .a{
+      color:yellow;
+    }
+    .a:hover{
+      color:white;
+    }
+    .a,i{
+      font-size:larger;
+    }
+</style>
+<!--navbar-->
+<nav class="navbar navbar-expand-lg mynavbar fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"style='color:orange;font-weight:bold;1'>Blogger</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-white"><i class="fas fa-bars"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}"><i class="fas fa-home"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'aboutpage' %}"><i class="fas fa-eject"></i>About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contactpage' %}"><i class="fas fa-phone-volume"></i>Contact</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'dashboardpage' %}"><i class="fas fa-chart-line"></i>Dashboard</a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="{% url 'logoutpage' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signuppage' %}"><i class="fas fa-user-plus"></i>Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'loginpage' %}"><i class="fas fa-hotel"></i>Login</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+          <a class="nav-link a" href="https://www.facebook.com/" target=""><i class='fab fa-facebook'></i></a>
+          <a class="nav-link a" href="https://www.instagram.com/" target="blank"><i class='fab fa-instagram'></i></a>
+          <a class="nav-link a" href="https://www.twitter.com/" target="blank"><i class='fab fa-twitter'></i></a>
+          <a class="nav-link a" href="https://www.youtube.com/" target="blank"><i class='fab fa-youtube'></i></a>
+  </div>
+</nav>

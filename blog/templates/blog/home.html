@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+  <div class="col-sm-12">
+      <h2 class='p-2 text-center'style='color:darkblue;font-size:3em; letter-spacing:15px;
+      text-shadow:5px 3px 3px red;'>Blogs</h2>
+     
+     <table class='table table-bordered table-striped table-hover'>
+       <thead>
+         <tr style='background-color: magenta; font-weight: bold; color:white;'>
+           <th style='width:30%;font-size:larger;'>Title</th>
+           <th style='width:60%;font-size: larger;'>Description</th>
+         </tr>
+       </thead>
+       <tbody class='mytable'>
+        {% for post in posts %}
+         <tr style='font-size: large;' class='myfont'>
+           <td style='padding: 20px;font-size:25px;'>{{post.title}}</td>
+           <td>{{post.desc}}</td>
+         </tr>
+         {% endfor %}
+       </tbody>
+     </table>
+      
+  </div>
+{% endblock content %}
+{% block side %}
+{% endblock side %}

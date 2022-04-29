@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}SignUp{% endblock title %}
+{% block side %}
+    <div class='col-sm-7'>
+       <img src="{% static 'blog/images/blogs.png' %}"">
+    </div>
+{% endblock side %}
+
+{% block content %}
+    <div class="col-sm-5 mt-3" style=''>
+        <h2 class='mt-2 text-center bg-primary text-white p-2' style='text-shadow:4px 3px 3px yellow;'>SignUp</h2>
+       <form action='' method='POST' style="font-weight:bold;" novalidate>
+        {% if messages %}
+        {% for msg in messages %}
+           <p class='alert alert-success'> {{msg}}</p>
+         {% endfor %}
+        {% endif %}
+           {% csrf_token %}
+           {% if form %}
+           {% for fm in form %}
+           <div class='form-group'>
+           {{fm.label_tag}}{{fm}}<small class='text-warning'>{{fm.errors|striptags}}</small>
+           </div>
+           {% endfor %}
+           {% endif %}<br>
+      <input class='btn  btn-lg btn-outline-success' type='submit' value="SignUP"/>
+      {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+      <p>error</p>
+      {% endfor %}
+      {% endif %}
+        </form>
+    </div>  
+
+{% endblock content %}

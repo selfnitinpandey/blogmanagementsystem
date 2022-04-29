@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/mystyle.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Explora&family=Lora:ital@1&display=swap" rel="stylesheet">
+<style>
+    .myfont{
+    font-family: 'Lora', 'serif';
+    font-weight: bolder;
+    }
+</style>
+</head>
+<body>
+   
+
+<div class="container-fluid">
+    {% include 'blog/navbar.html' %}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            {% block msg %}
+            {% endblock msg %}
+        </div>
+    </div>
+    <div class="row mt-5">
+     
+         {% block side %}
+        {% endblock side %}
+
+         {% block content %}
+        {% endblock content %}
+    </div>
+</div>
+<script src="{% static 'blog/js/jquery.js' %}"></script>
+<script src="{% static 'blog/js/popper.js' %}"></script>
+<script src="{% static 'blog/js/bootstrap.js' %}"></script>
+<script src="{% static 'blog/js/all.js' %}"></script>
+<script src="{% static 'blog/js/myscript.js' %}"></script>
+</body>
+</html>

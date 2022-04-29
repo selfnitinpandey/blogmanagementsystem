@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}LogIn{% endblock title %}
+{% block side %}
+<div class="col-sm-6" style=''>
+  <img src="{% static 'blog/images/blogs2.jpg' %}" class='img-fluid mt-5 img-thumbnail'
+    style='border-radius: 1px 200px;'>
+</div>
+{% endblock side %}
+
+{% block content %}
+<div class="col-sm-6">
+  <h2 class='mt-5 bg-primary text-center text-white p-2 ' style='text-shadow:4px 3px 3px red;'>LogIn</h2>
+  <form action='' method='POST' style='font-weight:bold;' class='mt-4' novalidate>
+    {% csrf_token %}
+    {% if form %}
+    {% for fm in form %}
+    {{fm.label_tag}}{{fm}}<p class='text-warning'>{{fm.errors|striptags}}</p>
+    {% endfor %}
+    {% endif %}
+    <input type='submit' value='LogIn' class='btn btn-primary btn-outline-warning btn-lg'>
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <p class='alert alert-warning'>{{error}}</p>
+    {% endfor %}
+    {% endif %}
+  </form>
+</div>
+{% endblock content %}
